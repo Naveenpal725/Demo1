@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -38,6 +39,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
             modifier = modifier
         )
         Text(text = "Assistant Abhishek")
+        Text(text = "Assistant Naveen Pal")
         Screen()
     }
 }
