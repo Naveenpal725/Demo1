@@ -37,7 +37,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
             text = "Hello $name!",
             modifier = modifier
         )
-        Text(text = "Assistant Abhishek kumar 0007")
+        Text(text = "Assistant Abhishek kumar 007")
     }
 }
 
