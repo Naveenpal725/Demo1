@@ -38,6 +38,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
             modifier = modifier
         )
         Text(text = "Assistant Abhishek")
+        Text(text = "Assistant Naveen Pal AI")
         Screen()
     }
 }
