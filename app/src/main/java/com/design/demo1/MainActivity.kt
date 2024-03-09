@@ -18,7 +18,13 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Call
+import androidx.compose.material.icons.filled.Clear
+import androidx.compose.material.icons.filled.Create
 import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -51,13 +57,14 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-
 @Composable
 fun Profile() {
     // Write Your Code Here
     Column(
         modifier = Modifier.fillMaxSize()
-    ) {
+    )
+    {
+        Spacer(modifier = Modifier.height(16.dp))
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -66,7 +73,7 @@ fun Profile() {
         ) {
             Image(
                 modifier = Modifier.clip(CircleShape),
-                painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                painter = painterResource(id = R.drawable.ic_launcher_background),
                 contentDescription = null
             )
             Column(
@@ -78,12 +85,11 @@ fun Profile() {
                     text = "Name",
                     fontSize = 32.sp,
                 )
-                Text(
-                    text = "Designation",
-                    fontSize = 32.sp,
-                )
+
             }
+
         }
+        Spacer(modifier = Modifier.height(16.dp))
         Row(
             modifier = Modifier
                 .wrapContentHeight()
@@ -102,13 +108,14 @@ fun Profile() {
             )
 
         }
+        Spacer(modifier = Modifier.height(16.dp))
         Row(
             modifier = Modifier
                 .wrapContentHeight()
                 .padding(horizontal = 16.dp)
         ) {
             Icon(
-                modifier = Modifier.size(36.dp),
+                modifier = Modifier.size(40.dp),
                 imageVector = Icons.Default.Email,
                 contentDescription = null,
                 tint = Color.Blue
@@ -120,8 +127,98 @@ fun Profile() {
             )
 
         }
+        Spacer(modifier = Modifier.height(16.dp))
+        Row(
+            modifier = Modifier
+                .wrapContentHeight()
+                .padding(horizontal = 16.dp)
+        ) {
+            Icon(
+                modifier = Modifier.size(40.dp),
+                imageVector = Icons.Default.Home,
+                contentDescription = null,
+                tint = Color.Blue
+            )
+            Spacer(modifier = Modifier.width(16.dp))
+            Text(
+                text = "Address",
+                fontSize = 32.sp,
+            )
+        }
+        Spacer(modifier = Modifier.height(16.dp))
+        Row(
+                modifier = Modifier
+                    .wrapContentHeight()
+                    .padding(horizontal = 16.dp)
+                ) {
+            Icon(
+                modifier = Modifier.size(36.dp),
+                imageVector = Icons.Default.ShoppingCart,
+                contentDescription = null,
+                tint = Color.Blue
+            )
+            Spacer(modifier = Modifier.width(16.dp))
+            Text(
+                text = "MY Order",
+                fontSize = 32.sp,
+            )
+            Spacer(modifier = Modifier.width(44.dp))
+            Icon(
+                    modifier = Modifier.size(36.dp),
+                    imageVector = Icons.Default.Create,
+                    contentDescription = null,
+                    tint = Color.Blue
+                )
+            Spacer(modifier = Modifier.width(16.dp))
+            Text(
+                text = "Edit",
+                fontSize = 32.sp,
+            )
+        }
+        Spacer(modifier = Modifier.height(16.dp))
+        Row(
+            modifier = Modifier
+                .wrapContentHeight()
+                .padding(horizontal = 16.dp)
+
+        )
+
+        {
+            Spacer(modifier = Modifier.height(40.dp))
+            Spacer(modifier = Modifier.width(4.dp))
+            Icon(
+                modifier = Modifier.size(36.dp),
+                imageVector = Icons.Default.Person,
+                contentDescription = null,
+                tint = Color.Blue
+            )
+            Spacer(modifier = Modifier.width(5.dp))
+            Text(
+                text = "MY Cart",
+                fontSize = 32.sp,
+            )
+            Spacer(modifier = Modifier.width(44.dp))
+            Icon(
+                modifier = Modifier.size(36.dp),
+                imageVector = Icons.Default.Search,
+                contentDescription = null,
+                tint = Color.Blue
+            )
+
+            Spacer(modifier = Modifier.width(16.dp))
+            Text(
+                text = "Search",
+                fontSize = 32.sp,
+            )
+
+
+
+        }
+        }
+
     }
-}
+
+
 
 @Preview(showBackground = true)
 @Composable
