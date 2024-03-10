@@ -38,6 +38,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -74,12 +75,13 @@ fun Profile() {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(100.dp)
+                .height(120.dp)
                 .padding(vertical = 8.dp, horizontal = 16.dp)
         ) {
             Image(
-                modifier = Modifier.clip(CircleShape),
+                modifier = Modifier.size(108.dp).clip(CircleShape),
                 painter = painterResource(id = R.drawable.ic_launcher_background),
+                contentScale = ContentScale.Crop,
                 contentDescription = null
             )
             Column(
@@ -91,152 +93,29 @@ fun Profile() {
                     text = "Name",
                     fontSize = 32.sp,
                 )
-
-            }
-
-        }
-        Spacer(modifier = Modifier.height(16.dp))
-        Row(
-            modifier = Modifier
-                .wrapContentHeight()
-                .padding(horizontal = 16.dp)
-        ) {
-            Icon(
-                modifier = Modifier.size(36.dp),
-                imageVector = Icons.Default.Call,
-                contentDescription = null,
-                tint = Color.Blue
-            )
-            Spacer(modifier = Modifier.width(16.dp))
-            Text(
-                text = "Phone Number",
-                fontSize = 32.sp,
-            )
-
-        }
-        Spacer(modifier = Modifier.height(16.dp))
-        Row(
-            modifier = Modifier
-                .wrapContentHeight()
-                .padding(horizontal = 16.dp)
-        ) {
-            Icon(
-                modifier = Modifier.size(40.dp),
-                imageVector = Icons.Default.Email,
-                contentDescription = null,
-                tint = Color.Blue
-            )
-            Spacer(modifier = Modifier.width(16.dp))
-            Text(
-                text = "Email",
-                fontSize = 32.sp,
-            )
-
-        }
-        Spacer(modifier = Modifier.height(16.dp))
-        Row(
-            modifier = Modifier
-                .wrapContentHeight()
-                .padding(horizontal = 16.dp)
-        ) {
-            Icon(
-                modifier = Modifier.size(40.dp),
-                imageVector = Icons.Default.Home,
-                contentDescription = null,
-                tint = Color.Blue
-            )
-            Spacer(modifier = Modifier.width(16.dp))
-            Text(
-                text = "Address",
-                fontSize = 32.sp,
-            )
-        }
-        Spacer(modifier = Modifier.height(20.dp))
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.SpaceBetween
-        )
-        {
-            Button(onClick = { /*TODO*/ }) {
-                //    Spacer(modifier = Modifier.width(16.dp))
-                // Spacer(modifier = Modifier.height(16.dp))
-                Icon(
-                    modifier = Modifier.size(36.dp),
-                    imageVector = Icons.Default.ShoppingCart,
-                    contentDescription = null,
-                    tint = Color.Blue
-                )
-                //    Spacer(modifier = Modifier.width(16.dp))
                 Text(
-                    text = "My Order",
-                    fontSize = 20.sp,
-                )
+                    text = "Phone Number"
 
-            }
-
-            Button(onClick = { /*TODO*/ }) {
-                Icon(
-                    modifier = Modifier.size(36.dp),
-                    imageVector = Icons.Default.Create,
-                    contentDescription = null,
-                    tint = Color.Blue
                 )
                 Text(
-                    text = "Edit",
-                    fontSize = 20.sp,
+                    text = "Email"
+
                 )
+
             }
+
+
+
 
         }
-
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            Button(onClick = { /*TODO*/ }) {
-                Icon(
-                    modifier = Modifier.size(28.dp),
-                    imageVector = Icons.Default.Person,
-                    contentDescription = null,
-                    tint = Color.Blue
-                )
-                Text(
-                    text = "My Cart",
-                    fontSize = 20.sp,
-                )
-
-            }
-            Button(onClick = { /*TODO*/ }) {
-                Spacer(modifier = Modifier.width(16.dp))
-                Icon(
-                    modifier = Modifier.size(28.dp),
-                    imageVector = Icons.Default.Search,
-                    contentDescription = null,
-                    tint = Color.Blue
-                )
-                Text(
-                    text = "Search",
-                    fontSize = 20.sp,
-
-                    )
-
-            }
-        }
+        Spacer(modifier = Modifier.height(44.dp))
+        Divider()
         LazyColumn {
             item { Options(heading = "My Orders", subHeading = "1") }
-            item { Options(heading = "My Orders", subHeading = "1") }
-            item { Options(heading = "My Orders", subHeading = "1") }
-            item { Options(heading = "My Orders", subHeading = "1") }
-            item { Options(heading = "My Orders", subHeading = "1") }
-            item { Options(heading = "My Orders", subHeading = "1") }
-            item { Options(heading = "My Orders", subHeading = "1") }
-            item { Options(heading = "My Orders", subHeading = "1") }
-            item { Options(heading = "My Orders", subHeading = "1") }
-
+            item { Options(heading = "Shipping Address", subHeading = "1") }
+            item { Options(heading = "My reviews", subHeading = "1") }
+            item { Options(heading = "Edit Profile", subHeading = "1") }
+            item { Divider() }
         }
     }
 
@@ -247,6 +126,7 @@ fun Options(
     heading: String,
     subHeading: String
 ) {
+//    Divider()
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -254,9 +134,11 @@ fun Options(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Column{
-            Text(text = heading, fontSize = 20.sp,
-                fontWeight = FontWeight.Bold)
+        Column {
+            Text(
+                text = heading, fontSize = 20.sp,
+                fontWeight = FontWeight.Bold
+            )
             Text(text = subHeading)
         }
         Icon(imageVector = Icons.Default.KeyboardArrowRight, contentDescription = null)
