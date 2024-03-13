@@ -105,7 +105,10 @@ fun Profile() {
                     )
 
                     Text(
-                        text = "Specification 1"
+                        text = "Specification 0"
+                    )
+                    Text(
+                        text =  "Specification 1"
                     )
                     Text(
                         text =  "Specification 2"
@@ -115,9 +118,6 @@ fun Profile() {
                     )
                     Text(
                         text =  "Specification 4"
-                    )
-                    Text(
-                        text =  "Specification 5"
                     )
 
                 }
