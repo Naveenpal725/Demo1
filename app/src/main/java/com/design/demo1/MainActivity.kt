@@ -1,5 +1,6 @@
 package com.design.demo1
 
+import android.health.connect.datatypes.units.Length
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -28,6 +29,7 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.Button
 import androidx.compose.material3.Divider
+import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -38,6 +40,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Outline
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -66,85 +70,120 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Profile() {
-    // Write Your Code Here
+    // Write Your Code Here }
+
     Column(
-        modifier = Modifier.fillMaxSize()
+
+        modifier = Modifier//.fillMaxSize()
+
     )
     {
-        Spacer(modifier = Modifier.height(16.dp))
-        Row(
+        Spacer(modifier = Modifier.height(2.dp))
+
+        ElevatedCard(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(120.dp)
-                .padding(vertical = 8.dp, horizontal = 16.dp)
+                .padding(vertical = 8.dp, horizontal = 8.dp)
         ) {
-            Image(
-                modifier = Modifier.size(108.dp).clip(CircleShape),
-                painter = painterResource(id = R.drawable.ic_launcher_background),
-                contentScale = ContentScale.Crop,
-                contentDescription = null
-            )
-            Column(
-                modifier = Modifier.fillMaxSize(),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                Text(
-                    text = "Name",
-                    fontSize = 32.sp,
-                )
-                Text(
-                    text = "Phone Number"
 
-                )
-                Text(
-                    text = "Email"
 
+            Row {
+                Image(
+                    modifier = Modifier.size(height = 150.dp, width =120.dp ),
+                    painter = painterResource(id = R.drawable.ic_launcher_background),
+                    contentScale = ContentScale.Crop,
+                    contentDescription = null
                 )
+                Spacer(modifier = Modifier.width(30.dp))
+                Column {
+                    Text(
+                        text = "Product Name",
+                        fontSize = 20.sp,
+                        )
+                    Text(
+                        text = "Technical Specification"
+                    )
+
+                    Text(
+                        text = "Specification 1"
+                    )
+                    Text(
+                        text =  "Specification 2"
+                    )
+                    Text(
+                        text =  "Specification 3"
+                    )
+                    Text(
+                        text =  "Specification 4"
+                    )
+                    Text(
+                        text =  "Specification 5"
+                    )
+
+                }
+
+
 
             }
 
 
-
-
         }
-        Spacer(modifier = Modifier.height(44.dp))
-        Divider()
-        LazyColumn {
-            item { Options(heading = "My Orders", subHeading = "1") }
-            item { Options(heading = "Shipping Address", subHeading = "1") }
-            item { Options(heading = "My reviews", subHeading = "1") }
-            item { Options(heading = "Edit Profile", subHeading = "1") }
-            item { Divider() }
-        }
+
     }
-
+//    Column(
+//
+//        modifier = Modifier//.fillMaxSize()
+//
+//    )
+//    {
+//        Spacer(modifier = Modifier.height(4.dp))
+//
+//        ElevatedCard(
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .padding(vertical = 8.dp, horizontal = 8.dp)
+//        ) {
+//
+//
+//            Row {
+//                Image(
+//                    modifier = Modifier.size(60.dp),
+//                    painter = painterResource(id = R.drawable.ic_launcher_background),
+//                    contentScale = ContentScale.Crop,
+//                    contentDescription = null
+//                )
+//                Spacer(modifier = Modifier.width(30.dp))
+//                Column {
+//                    Text(
+//                        text = "Product Name",
+//                        fontSize = 20.sp,
+//                    )
+//                    Text(
+//                        text = "Features of Product"
+//                    )
+//
+//                    Text(
+//                        text = "Features of Product"
+//                    )
+//                    Text(
+//                        text = "Features of Product"
+//                    )
+//                    Text(
+//                        text = "Features of Product"
+//                    )
+//
+//                }
+//
+//
+//
+//            }
+//
+//
+//        }
+//
+//    }
 }
 
-@Composable
-fun Options(
-    heading: String,
-    subHeading: String
-) {
-//    Divider()
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(16.dp),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Column {
-            Text(
-                text = heading, fontSize = 20.sp,
-                fontWeight = FontWeight.Bold
-            )
-            Text(text = subHeading)
-        }
-        Icon(imageVector = Icons.Default.KeyboardArrowRight, contentDescription = null)
-    }
-    Divider()
-}
 
 @Preview(showBackground = true)
 @Composable
