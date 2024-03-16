@@ -86,71 +86,71 @@ fun YourTask() {
 
             }
 
-                Column  {
-                    Column {
+            Column {
+                Column {
 //                        modifier = Modifier
 //                            .fillMaxWidth()
 //                            .padding(vertical = 4.dp, horizontal = 4.dp)
 //                        Spacer(modifier = Modifier.padding(vertical = 4.dp, horizontal = 4.dp)))
 
-                    }
+                }
 
 //                            .fillMaxWidth()
 //                            .padding(vertical = 4.dp, horizontal = 4.dp)
-                    Text(
-                        text = "Product Name",
-                        fontSize = 30.sp,
-                    )
-                    Text(
-                        text = "Technical Specification" ,
-                        fontSize = 20.sp,
-                    )
+                Text(
+                    text = "Product Name",
+                    fontSize = 30.sp,
+                )
+                Text(
+                    text = "Technical Specification",
+                    fontSize = 20.sp,
+                )
 
-                    Text(
-                        text = "Specification 0",
-                        fontSize = 20.sp,
-                    )
-                    Text(
-                        text = "Specification 1",
-                        fontSize = 20.sp,
-                    )
-                    Text(
-                        text = "Specification 2",
-                        fontSize = 20.sp,
-                    )
-                    Text(
-                        text = "Specification 3",
-                        fontSize = 20.sp,
-                    )
-                    Text(
-                        text = "Specification 4",
-                        fontSize = 20.sp,
-                    )
+                Text(
+                    text = "Specification 0",
+                    fontSize = 20.sp,
+                )
+                Text(
+                    text = "Specification 1",
+                    fontSize = 20.sp,
+                )
+                Text(
+                    text = "Specification 2",
+                    fontSize = 20.sp,
+                )
+                Text(
+                    text = "Specification 3",
+                    fontSize = 20.sp,
+                )
+                Text(
+                    text = "Specification 4",
+                    fontSize = 20.sp,
+                )
 
 
-                }
-                Spacer(modifier = Modifier.height(220.dp))
-                Column {
-                    Row {
-                        IconButton(onClick = { /*TODO*/ }) {
-                            Icon(
-                                imageVector = Icons.Filled.ShoppingCart,
+            }
+            Spacer(modifier = Modifier.height(220.dp))
+            Column {
+                Row {
+                    IconButton(onClick = { /*TODO*/ }) {
+                        Icon(
+                            imageVector = Icons.Filled.ShoppingCart,
 
-                                contentDescription = "Localized description"
-                            )
-                        }
-                        Spacer(modifier = Modifier.width(50.dp))
-                        ElevatedButton(onClick = { /*TODO*/ }) {
-                            Text("Call Now")
-                        }
-                        Spacer(modifier = Modifier.width(50.dp))
-                        ElevatedButton(onClick = { /*TODO*/ }) {
-                            Text("Order Now")
-                        }
+                            contentDescription = "Localized description"
+                        )
                     }
-
-
+                    Spacer(modifier = Modifier.width(50.dp))
+                    ElevatedButton(onClick = { /*TODO*/ }) {
+                        Text("Call Now")
+                    }
+                    Spacer(modifier = Modifier.width(50.dp))
+                    ElevatedButton(onClick = { /*TODO*/ }) {
+                        Text("Order Now")
+                    }
                 }
+
+
+            }
         }
         }
 
