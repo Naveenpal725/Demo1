@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity() {
             setKeepOnScreenCondition { // Splash Screen Shows Up until the condition is true
                 !viewModel.isReady.value
             }
-            setOnExitAnimationListener {splashScreens ->
+            setOnExitAnimationListener { splashScreens ->
                 val zoomX = ObjectAnimator.ofFloat(
                     splashScreens.iconView,
                     View.SCALE_X,
@@ -69,13 +69,13 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun YourTask() {
 // Implement a searching technique which will find the closest match in assending order
-    val list = listOf("ayush", "naveen", "abhishek", "anubhaw","aakash","naal","naali", "ashmaan")
+    val list =
+        listOf("ayush", "naveen", "abhishek", "anubhaw", "aakash", "naal", "naali", "ashmaan")
 
     // input = naa
     // output should be = {"naal",,"naali","naveen"}
 
     // Write your Code Here
-
 
 
 }
