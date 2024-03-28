@@ -7,11 +7,27 @@ import android.view.animation.OvershootInterpolator
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.togetherWith
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -58,10 +74,102 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    YourTask()
+                    // YourTask()
+                    AnimationComp()
                 }
             }
         }
+    }
+}
+
+
+@OptIn(ExperimentalAnimationApi::class)
+@Composable
+fun AnimationComp() {
+    var visible by rememberSaveable {
+        mutableStateOf(false)
+    }
+    var isRound by rememberSaveable {
+        mutableStateOf(false)
+    }
+    Column {
+        Button(onClick = {
+            visible = !visible
+            isRound = !isRound
+        }) {
+            Text(text = "Toggle")
+        }
+//        val transition = updateTransition(targetState = isRound, label = null)
+//        val borderR by transition.animateInt(
+//            transitionSpec = { tween(2000) },
+//            label = "",
+//            targetValueByState = { isRound ->
+//                if (isRound) 100 else 0
+//            }
+//            )
+//         val color by transition.animateColor(
+//             transitionSpec = {tween (1000)
+//             },
+//             label = "",
+//         ) {isRound ->
+//             if (isRound) Color.Red else Color.Green
+//         }
+//        val borderR by animateIntAsState(
+//            targetValue = if (isRound) 40 else 20,
+//            label = " ",
+//            animationSpec = tween(100)
+        //spring(Spring.DampingRatioHighBouncy, Spring.StiffnessLow)
+        //tween(3000, 500)
+//        )
+
+//        val repeatable = rememberInfiniteTransition(label = "")
+//        val color by repeatable.animateColor(
+//            initialValue = Color.Red,
+//            targetValue = Color.Green,
+//            animationSpec = infiniteRepeatable(
+//                animation = tween(2000),
+//                repeatMode = RepeatMode.Reverse,
+//            ),
+//            label = ""
+//        )
+//        Box(
+//            modifier = Modifier
+//                .size(200.dp)
+////                .clip(RoundedCornerShape(borderR))
+//                .background(color)
+//        )
+//        AnimatedVisibility(
+//            visible = visible,
+//            enter = slideInHorizontally() + fadeIn(),
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .weight(1f)
+//        ) {
+//            Box(modifier = Modifier.background(Color.Red))
+//        }
+
+
+        AnimatedContent(
+            targetState = visible,
+            modifier = Modifier
+                .fillMaxWidth()
+                .weight(1f),
+            label = "",
+            transitionSpec = { slideInHorizontally(initialOffsetX = {
+                if (visible) it else -it
+            }) togetherWith slideOutHorizontally(
+                targetOffsetX = {
+                if (visible) -it else it
+                }
+            ) },
+        ) {isVisible ->
+            if (isVisible) {
+                Box(Modifier.background(Color.Red))
+            } else {
+                Box(Modifier.background(Color.Green))
+            }
+        }
+
     }
 }
 
