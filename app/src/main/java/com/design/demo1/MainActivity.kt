@@ -7,16 +7,9 @@ import android.view.animation.OvershootInterpolator
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.animation.slideInHorizontally
-import androidx.compose.animation.slideOutHorizontally
-import androidx.compose.animation.togetherWith
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -27,7 +20,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -74,12 +66,37 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    // YourTask()
-                    AnimationComp()
+                    ShippingCard(modifier = Modifier.fillMaxSize())
+//                    ShippingCardPage(modifier = Modifier.fillMaxSize())
                 }
             }
         }
     }
+}
+
+@Composable
+fun ShippingCard(modifier: Modifier) {
+    Column(
+        modifier = modifier
+    ) {
+
+    }
+}
+
+@Composable
+fun ShippingCardPage(modifier: Modifier) {
+    Column(
+        modifier = modifier
+    ) {
+
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun YourTaskPrev() {
+    ShippingCard(modifier = Modifier.fillMaxSize())
+//    ShippingCardPage(modifier = Modifier.fillMaxSize())
 }
 
 
@@ -149,48 +166,44 @@ fun AnimationComp() {
 //        }
 
 
-        AnimatedContent(
-            targetState = visible,
-            modifier = Modifier
-                .fillMaxWidth()
-                .weight(1f),
-            label = "",
-            transitionSpec = { slideInHorizontally(initialOffsetX = {
-                if (visible) it else -it
-            }) togetherWith slideOutHorizontally(
-                targetOffsetX = {
-                if (visible) -it else it
-                }
-            ) },
-        ) {isVisible ->
-            if (isVisible) {
-                Box(Modifier.background(Color.Red))
-            } else {
-                Box(Modifier.background(Color.Green))
-            }
-        }
+//        AnimatedContent(
+//            targetState = visible,
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .weight(1f),
+//            label = "",
+//            transitionSpec = { slideInHorizontally(initialOffsetX = {
+//                if (visible) it else -it
+//            }) togetherWith slideOutHorizontally(
+//                targetOffsetX = {
+//                if (visible) -it else it
+//                }
+//            ) },
+//        ) {isVisible ->
+//            if (isVisible) {
+//                Box(Modifier.background(Color.Red))
+//            } else {
+//                Box(Modifier.background(Color.Green))
+//            }
+//        }
 
     }
 }
 
 
-@Composable
-fun YourTask() {
-// Implement a searching technique which will find the closest match in assending order
-    val list =
-        listOf("ayush", "naveen", "abhishek", "anubhaw", "aakash", "naal", "naali", "ashmaan")
+//
+//@Composable
+//fun YourTask() {
+//// Implement a searching technique which will find the closest match in assending order
+//    val list =
+//        listOf("ayush", "naveen", "abhishek", "anubhaw", "aakash", "naal", "naali", "ashmaan")
+//
+//    // input = naa
+//    // output should be = {"naal",,"naali","naveen"}
+//
+//    // Write your Code Here
+//
+//
+//}
 
-    // input = naa
-    // output should be = {"naal",,"naali","naveen"}
 
-    // Write your Code Here
-
-
-}
-
-
-@Preview(showBackground = true)
-@Composable
-private fun YourTaskPrev() {
-    YourTask()
-}
